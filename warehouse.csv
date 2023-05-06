@@ -1,6 +1,6 @@
-﻿wh.code,name,code,number,price
-1,manto,1,10,300000T
-1,suit,2,4,1000000T
+wh.code,name,code,number,price
+1,manto,1,9,300000T
+1,suit,2,3,1000000T
 1,shirt,3,8,500000T
 1,dress,4,5,450000T
 1,Tshirt,5,11,450000T
@@ -8,4 +8,4 @@
 2,scarf,7,12,450000T
 3,jean,8,9,450000T
 3,pajama,9,9,450000T
-3,pants,10,9,450000T
+3,pants,10,10,450000T
