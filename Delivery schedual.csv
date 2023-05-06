@@ -1,3 +1,4 @@
-time,capacity
-noon,3
-evening,3
+time,orders
+morning,0
+noon,0
+evening,1
