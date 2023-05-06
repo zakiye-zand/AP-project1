@@ -59,9 +59,19 @@ class Warehouse:
         pass
 
     def Output(self):  # saves an output of wares
-        d = self.d[['wh.code', 'code', 'number']]
-        d.to_csv(
-            "c:/Users/LENOVO/Desktop/Ap/project 1/warehouse output.csv", index=False)
+
+        o = input("\n1.text output\n2.csv output\n")
+        d = self.d[['code', 'number', 'wh.code']]
+        if o == '1':
+            path = 'c:/Users/LENOVO/Desktop/Ap/project 1/warehouse output.txt'
+            with open(path, 'a') as f:
+                d_string = d.to_string( index=False)
+                f.write(d_string)
+            print("Text file saved\n")
+        elif o == '2':
+            d.to_csv(
+                "c:/Users/LENOVO/Desktop/Ap/project 1/warehouse output.csv", index=False)
+            print("Csv file saved\n")
 
     def AddWare(self):
         whcode = eval(input("Enter warehouse code: \n"))
@@ -78,7 +88,6 @@ class Store():
     def __init__(self):
         self.d = pd.read_csv(
             'C:/Users/LENOVO/Desktop/Ap/project 1/warehouse.csv')
-        
 
     def Order(self, wares: list):     # shows goods and takes order and add the order to ware list #
         for i in self.d.index:
@@ -90,8 +99,9 @@ class Store():
         o = eval(input("please choose the good you want: "))
         n = eval(input("please choose the number you want: "))
 
-        if self.d.loc[o-1, 'number'] >= n:   # checks if the chosen number of a good be in warehouse #
-            self.d.loc[o-1, 'number'] -= n    #  update number of showable list
+        # checks if the chosen number of a good be in warehouse #
+        if self.d.loc[o-1, 'number'] >= n:
+            self.d.loc[o-1, 'number'] -= n  # update number of showable list
             s = input("Wich size do you want?(M,L,XL) ")
             print("\nthe goods added to your cart successfuly:)")
             l = [self.d.loc[o-1, 'name'], self.d.loc[o-1, 'price'], n]
